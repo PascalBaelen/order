@@ -12,7 +12,6 @@ import java.util.*;
 public class CustomerRepository {
 
     private Map<String, Customer> customers;  // key will be emailAddress;
-    private CustomerMapper customerMapper;
 
     public CustomerRepository() {
         this.customers = new HashMap<>();
