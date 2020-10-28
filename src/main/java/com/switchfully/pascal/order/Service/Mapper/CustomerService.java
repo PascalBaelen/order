@@ -28,7 +28,7 @@ public class CustomerService {
     public CustomerMapper getCustomerMapper() {
         return customerMapper;
     }
-    public List<CustomerDTO> getAllBookDTOs() {
+    public List<CustomerDTO> getAllCustomerDTOs() {
         return customerRepository.getCustomers().stream()
                 .map(customer -> customerMapper.toDTO(customer))  // if fails, review this line customerMapper.
                 .collect(Collectors.toList());
