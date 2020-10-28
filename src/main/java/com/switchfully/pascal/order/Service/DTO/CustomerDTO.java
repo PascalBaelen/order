@@ -6,17 +6,37 @@ import java.util.Objects;
 
 public class CustomerDTO {
 
-    private final String firstName;
-    private final String name;
-    private final String emailAddress;
-    private final String phoneNumber;
-    private final Address address;
+    private  String firstName;
+    private  String name;
+    private  String emailAddress;
+    private  String phoneNumber;
+    private  Address address;
 
-    public CustomerDTO(String firstName, String name, String emailAddress, String phoneNumber, Address address) {
+//    public CustomerDTO(String firstName, String name, String emailAddress, String phoneNumber, Address address) {
+//        this.firstName = firstName;
+//        this.name = name;
+//        this.emailAddress = emailAddress;
+//        this.phoneNumber = phoneNumber;
+//        this.address = address;
+//    }
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public void setAddress(Address address) {
         this.address = address;
     }
 

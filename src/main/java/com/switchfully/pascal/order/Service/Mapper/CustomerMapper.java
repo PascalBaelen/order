@@ -16,11 +16,15 @@ public class CustomerMapper {
                 customerDTO.getAddress());
 
     }
-
-    public CustomerDTO toDTO(Customer customer) {
-        CustomerDTO result = new CustomerDTO(customer.getFirstName(), customer.getName(),
-                customer.getEmailAddress(), customer.getPhoneNumber(), customer.getAddress());
+    public CustomerDTO detailDTO(Customer customer) {
+        CustomerDTO result = new CustomerDTO();
+        result.setFirstName(customer.getFirstName());
+        result.setName(customer.getName());
+        result.setEmailAddress(customer.getEmailAddress());
+        result.setPhoneNumber(customer.getPhoneNumber());
+        result.setAddress(customer.getAddress());
         return result;
 
     }
+
 }

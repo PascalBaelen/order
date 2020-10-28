@@ -1,5 +1,6 @@
 package com.switchfully.pascal.order.Service.Mapper;
 
+import com.switchfully.pascal.order.Business.Entity.Customer;
 import com.switchfully.pascal.order.Business.Repository.CustomerRepository;
 import com.switchfully.pascal.order.Service.DTO.CustomerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,8 @@ import java.util.stream.Collectors;
 @Service
 public class CustomerService {
 
-   private CustomerRepository customerRepository;
-   private CustomerMapper customerMapper;
+    private CustomerRepository customerRepository;
+    private CustomerMapper customerMapper;
 
 
     @Autowired
@@ -21,16 +22,24 @@ public class CustomerService {
         this.customerMapper = customerMapper;
     }
 
-    public CustomerRepository getCustomerRepository() {
-        return customerRepository;
-    }
-
-    public CustomerMapper getCustomerMapper() {
-        return customerMapper;
-    }
     public List<CustomerDTO> getAllCustomerDTOs() {
         return customerRepository.getCustomers().stream()
-                .map(customer -> customerMapper.toDTO(customer))
+                .map(customer -> customerMapper.detailDTO(customer))
                 .collect(Collectors.toList());
+    }
+
+    public CustomerDTO createMember(CustomerDTO customerDTO) {
+        Customer customer = customerRepository.create(customerMapper.createCustomer(customerDTO));
+        return customerMapper.detailDTO(customer);
+
+    }
+
+    public CustomerDTO getMemberByEmail(String emailAddress) {
+        return customerMapper.detailDTO(customerRepository.getCustomer(emailAddress));
+
+    }
+
+
 }
-}
+
+

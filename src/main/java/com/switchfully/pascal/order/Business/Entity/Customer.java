@@ -1,6 +1,5 @@
 package com.switchfully.pascal.order.Business.Entity;
 
-import com.switchfully.pascal.order.Business.Entity.Address;
 
 import java.util.Objects;
 

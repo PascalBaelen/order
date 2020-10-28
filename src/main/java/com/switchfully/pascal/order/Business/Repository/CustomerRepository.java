@@ -41,7 +41,7 @@ public class CustomerRepository {
     public Customer getCustomer(String emailAddress) {
         Customer customer = customers.get(emailAddress);
         if (Objects.isNull(customer)) {
-            throw new CustomerNotFoundException("There is no customer availeble with this email" + emailAddress);
+            throw new CustomerNotFoundException("There is no customer available with this email" + emailAddress);
         }
 
         return customer;
