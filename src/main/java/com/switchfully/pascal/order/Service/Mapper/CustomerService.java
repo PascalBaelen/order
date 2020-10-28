@@ -30,7 +30,7 @@ public class CustomerService {
     }
     public List<CustomerDTO> getAllCustomerDTOs() {
         return customerRepository.getCustomers().stream()
-                .map(customer -> customerMapper.toDTO(customer))  // if fails, review this line customerMapper.
+                .map(customer -> customerMapper.toDTO(customer))
                 .collect(Collectors.toList());
 }
 }

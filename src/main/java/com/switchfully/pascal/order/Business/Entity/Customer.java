@@ -2,6 +2,8 @@ package com.switchfully.pascal.order.Business.Entity;
 
 import com.switchfully.pascal.order.Business.Entity.Address;
 
+import java.util.Objects;
+
 public class Customer {
 
     private final String firstName;
@@ -37,6 +39,23 @@ public class Customer {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return firstName.equals(customer.firstName) &&
+                name.equals(customer.name) &&
+                emailAddress.equals(customer.emailAddress) &&
+                phoneNumber.equals(customer.phoneNumber) &&
+                address.equals(customer.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, name, emailAddress, phoneNumber, address);
     }
 
     @Override

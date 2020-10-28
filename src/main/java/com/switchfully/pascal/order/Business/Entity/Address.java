@@ -1,5 +1,7 @@
 package com.switchfully.pascal.order.Business.Entity;
 
+import java.util.Objects;
+
 public class Address {
 
     private final String street;
@@ -39,6 +41,23 @@ public class Address {
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return street.equals(address.street) &&
+                streetNumber.equals(address.streetNumber) &&
+                city.equals(address.city) &&
+                country.equals(address.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(street, streetNumber, city, country);
     }
 
     public static class Order {
