@@ -11,6 +11,7 @@ public class Order {
     private LocalDate dateOfShipMent;
     private final String selectedItem;
     private final int wantedAmount;
+    private CalculateInvoice calculateInvoice;
 
     public Order(String emailAddress, double totalAmountToPay, LocalDate dateOfShipMent, String selectedItem, int wantedAmount) {
         this.emailAddress = emailAddress;
@@ -47,6 +48,7 @@ public class Order {
     public int getWantedAmount() {
         return wantedAmount;
     }
+
 
     @Override
     public boolean equals(Object o) {

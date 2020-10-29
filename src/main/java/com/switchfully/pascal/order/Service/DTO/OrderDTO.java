@@ -24,8 +24,8 @@ public class OrderDTO {
         return dateOfShipMent = LocalDate.now().plusWeeks(TIME_TO_SHIP_DELAYED_IN_WEEKS);
     }
 
-    public LocalDate setDateOfDelayedShipMent() {
-        return dateOfShipMent = LocalDate.now().plusWeeks(TIME_TO_SHIP_DELAYED_IN_WEEKS);
+    public LocalDate setDateOfDelayedShipMent(LocalDate dateOfShipMent) {
+        return this.dateOfShipMent = LocalDate.now().plusWeeks(TIME_TO_SHIP_DELAYED_IN_WEEKS);
     }
 
     public String getEmailAddress() {
