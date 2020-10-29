@@ -2,7 +2,9 @@ package com.switchfully.pascal.order.Service.Mapper;
 
 import com.switchfully.pascal.order.Business.Entity.Items;
 import com.switchfully.pascal.order.Service.DTO.ItemsDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ItemMapper {
     public Items createItems(ItemsDTO itemsDTO) {
         return new Items(

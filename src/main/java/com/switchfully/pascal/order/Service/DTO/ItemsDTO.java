@@ -52,12 +52,11 @@ public class ItemsDTO {
     }
 
     public String getId() {
-
-        return UUID.randomUUID().toString();
+        return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        id = UUID.randomUUID().toString();
     }
 
     @Override
@@ -87,4 +86,5 @@ public class ItemsDTO {
                 ", id='" + id + '\'' +
                 '}';
     }
+
 }

@@ -28,11 +28,12 @@ public class CustomerService {
                 .collect(Collectors.toList());
     }
 
-    public CustomerDTO createMember(CustomerDTO customerDTO) {
+    public CustomerDTO createCustomer(CustomerDTO customerDTO) {
         Customer customer = customerRepository.create(customerMapper.createCustomer(customerDTO));
         return customerMapper.detailDTO(customer);
 
     }
+
 
     public CustomerDTO getMemberByEmail(String emailAddress) {
         return customerMapper.detailDTO(customerRepository.getCustomer(emailAddress));

@@ -29,7 +29,7 @@ public class CustomerController {
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public CustomerDTO createCustomer(@RequestBody CustomerDTO customerDTO) {
-        return customerService.createMember(customerDTO);
+        return customerService.createCustomer(customerDTO);
     }
 
     @GetMapping(path = "/{emailAddress}", produces = MediaType.APPLICATION_JSON_VALUE)
