@@ -11,13 +11,13 @@ public class ItemsDTO {
     private String id;
 
 
-    public ItemsDTO(String name, String description, double price, int amountInStock) {
-        this.id = UUID.randomUUID().toString();
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.amountInStock = amountInStock;
-    }
+//    public ItemsDTO(String name, String description, double price, int amountInStock) {
+//        this.id = UUID.randomUUID().toString();
+//        this.name = name;
+//        this.description = description;
+//        this.price = price;
+//        this.amountInStock = amountInStock;
+//    }
 
     public String getName() {
         return name;
@@ -52,7 +52,8 @@ public class ItemsDTO {
     }
 
     public String getId() {
-        return id;
+
+        return UUID.randomUUID().toString();
     }
 
     public void setId(String id) {
@@ -66,9 +67,9 @@ public class ItemsDTO {
         ItemsDTO itemsDTO = (ItemsDTO) o;
         return Double.compare(itemsDTO.price, price) == 0 &&
                 amountInStock == itemsDTO.amountInStock &&
-                name.equals(itemsDTO.name) &&
-                description.equals(itemsDTO.description) &&
-                id.equals(itemsDTO.id);
+                Objects.equals(name, itemsDTO.name) &&
+                Objects.equals(description, itemsDTO.description) &&
+                Objects.equals(id, itemsDTO.id);
     }
 
     @Override
