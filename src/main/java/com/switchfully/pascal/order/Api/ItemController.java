@@ -24,7 +24,7 @@ public class ItemController {
     public List<ItemsDTO>getAllItems(){
         return itemService.getAllItemDTOs();
     }
-    @PostMapping(path = "/addItem", produces = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(path = "/addItem/admin", produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public ItemsDTO createItem(@RequestBody ItemsDTO itemsDTO) {
