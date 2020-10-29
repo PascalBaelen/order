@@ -27,10 +27,12 @@ public class ItemRepository {
     }
 
     public void createXampleItems() {
-        Items item1 = new Items("CornedBeef", "canned beef", 1.56, 52, "12345abcde");
-        Items item2 = new Items("Chocotoffs", "caramels with choclat napping", 3.01, 00, "54321abcde");
-        itemsList.put("12345abcde", item1);
-        itemsList.put("abcde54321", item2);
+        String UUID1  = UUID.randomUUID().toString();
+        String UUID2  = UUID.randomUUID().toString();
+        Items item1 = new Items("CornedBeef", "canned beef", 1.56, 52,UUID1);
+        Items item2 = new Items("Chocotoffs", "caramels with chocolat napping", 3.01, 02, UUID2);
+        itemsList.put(UUID1, item1);
+        itemsList.put(UUID2, item2);
     }
 
     public Items getItem(String id) {

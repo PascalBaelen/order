@@ -15,7 +15,7 @@ public class Items {
         this.description = description;
         this.price = price;
         this.amountInStock = amountInStock;
-        this.id = UUID.randomUUID().toString();
+        this.id = UUID.randomUUID().toString();  // this will be the key --> barcode ref
     }
 
     public String getName() {
