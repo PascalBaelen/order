@@ -10,15 +10,6 @@ public class ItemsDTO {
     private int amountInStock;
     private String id;
 
-
-//    public ItemsDTO(String name, String description, double price, int amountInStock) {
-//        this.id = UUID.randomUUID().toString();
-//        this.name = name;
-//        this.description = description;
-//        this.price = price;
-//        this.amountInStock = amountInStock;
-//    }
-
     public String getName() {
         return name;
     }
@@ -52,11 +43,13 @@ public class ItemsDTO {
     }
 
     public String getId() {
+        id = UUID.randomUUID().toString();
         return id;
     }
 
     public void setId(String id) {
         id = UUID.randomUUID().toString();
+        this.id = id;
     }
 
     @Override
@@ -86,5 +79,4 @@ public class ItemsDTO {
                 ", id='" + id + '\'' +
                 '}';
     }
-
 }

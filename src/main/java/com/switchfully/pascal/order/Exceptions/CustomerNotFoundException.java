@@ -1,7 +1,6 @@
 package com.switchfully.pascal.order.Exceptions;
 
 
-import com.switchfully.pascal.order.Business.Entity.Customer;
 
 public class CustomerNotFoundException extends RuntimeException {
         private String errorMessage;

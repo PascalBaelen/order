@@ -12,13 +12,6 @@ public class CustomerDTO {
     private  String phoneNumber;
     private  Address address;
 
-//    public CustomerDTO(String firstName, String name, String emailAddress, String phoneNumber, Address address) {
-//        this.firstName = firstName;
-//        this.name = name;
-//        this.emailAddress = emailAddress;
-//        this.phoneNumber = phoneNumber;
-//        this.address = address;
-//    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

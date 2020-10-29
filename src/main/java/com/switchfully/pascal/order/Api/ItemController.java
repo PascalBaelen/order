@@ -30,4 +30,10 @@ public class ItemController {
     public ItemsDTO createItem(@RequestBody ItemsDTO itemsDTO) {
         return itemService.createItem(itemsDTO);
     }
+    @GetMapping(path = "/searchForItem/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ItemsDTO findById (@PathVariable String id) {
+        return itemService.getItemById(id);
+    }
+
 }

@@ -1,9 +1,7 @@
 package com.switchfully.pascal.order.Service.Mapper;
 
-import com.switchfully.pascal.order.Business.Entity.Customer;
 import com.switchfully.pascal.order.Business.Entity.Items;
 import com.switchfully.pascal.order.Business.Repository.ItemRepository;
-import com.switchfully.pascal.order.Service.DTO.CustomerDTO;
 import com.switchfully.pascal.order.Service.DTO.ItemsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

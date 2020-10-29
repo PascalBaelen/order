@@ -12,7 +12,7 @@ import java.util.*;
 
 @Repository
 public class ItemRepository {
-    private Map<String, Items> itemsList;
+    private Map<String, Items> itemsList;  //key will be randomiser UUID
 
     public ItemRepository() {
         this.itemsList = new HashMap<>();
