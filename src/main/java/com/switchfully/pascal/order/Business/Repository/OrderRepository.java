@@ -8,8 +8,7 @@ import com.switchfully.pascal.order.Exceptions.OrderNotFoundException;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class OrderRepository {
@@ -37,6 +36,20 @@ public class OrderRepository {
                 LocalDate.ofYearDay(2020, 321), "44a418c6-7a34-4af1-9127-2799ce0c4f44", 07);
         orders.put("pascal.baelen@live.com", order1);
         orders.put("mateo.baelen@live.com", order2);
+    }
+
+    public Order getOrder(String emailAddress) {
+        Order order = orders.get(emailAddress);
+        if (Objects.isNull(order)) {
+            throw new OrderNotFoundException("There is no order available with this email" + emailAddress);
+        }
+
+        return order;
+
+    }
+
+    public List<Order> getOrders() {
+        return new ArrayList<>(orders.values());
     }
 }
 
