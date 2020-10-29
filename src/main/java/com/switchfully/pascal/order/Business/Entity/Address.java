@@ -16,23 +16,6 @@ public class Address {
         this.country = country;
     }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public String getCity() {
-        return city;
-
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
     @Override
     public String toString() {
         return "Address{" +
@@ -43,6 +26,21 @@ public class Address {
                 '}';
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public String getStreetNumber() {
+        return streetNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
 
     @Override
     public boolean equals(Object o) {

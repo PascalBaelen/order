@@ -1,6 +1,5 @@
 package com.switchfully.pascal.order.Api;
 
-import com.switchfully.pascal.order.Service.DTO.CustomerDTO;
 import com.switchfully.pascal.order.Service.DTO.ItemsDTO;
 import com.switchfully.pascal.order.Service.Mapper.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +18,20 @@ public class ItemController {
     public ItemController(ItemService itemService) {
         this.itemService = itemService;
     }
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<ItemsDTO>getAllItems(){
         return itemService.getAllItemDTOs();
     }
+
     @PostMapping(path = "/addItem/admin", produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public ItemsDTO createItem(@RequestBody ItemsDTO itemsDTO) {
         return itemService.createItem(itemsDTO);
     }
+
     @GetMapping(path = "/searchForItem/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ItemsDTO findById (@PathVariable String id) {

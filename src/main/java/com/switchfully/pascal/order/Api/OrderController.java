@@ -1,6 +1,5 @@
 package com.switchfully.pascal.order.Api;
 
-import com.switchfully.pascal.order.Service.DTO.CustomerDTO;
 import com.switchfully.pascal.order.Service.DTO.OrderDTO;
 import com.switchfully.pascal.order.Service.Mapper.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
