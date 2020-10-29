@@ -25,14 +25,14 @@ public class ItemRepository {
     }
 
     public void createXampleItems() {
-        Items item1 = new Items();
-        Items item2 = new Items();
-        itemsList.put("", item1);
-        itemsList.put("", item2);
+        Items item1 = new Items("CornedBeef","canned beef",1.56,52,"12345abcde");
+        Items item2 = new Items("Chocotoffs","caramels with choclat napping", 3.01,00,"54321abcde");
+        itemsList.put("12345abcde", item1);
+        itemsList.put("abcde54321", item2);
     }
 
     public List<Items> getItems() {
         return new ArrayList<>(itemsList.values());
     }
 }
-}
+

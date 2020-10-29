@@ -15,7 +15,7 @@ public class Items {
         this.description = description;
         this.price = price;
         this.amountInStock = amountInStock;
-        this.id = id;
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getName() {
@@ -54,9 +54,9 @@ public class Items {
         Items items = (Items) o;
         return Double.compare(items.price, price) == 0 &&
                 amountInStock == items.amountInStock &&
-                name.equals(items.name) &&
-                description.equals(items.description) &&
-                id.equals(items.id);
+                Objects.equals(name, items.name) &&
+                Objects.equals(description, items.description) &&
+                Objects.equals(id, items.id);
     }
 
     @Override
