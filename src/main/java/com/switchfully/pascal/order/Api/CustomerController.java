@@ -25,7 +25,7 @@ public class CustomerController {
         return customerService.getAllCustomerDTOs();
     }
 
-    @PostMapping(path = "/customer", produces = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(path = "/addCustomer", produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public CustomerDTO createCustomer(@RequestBody CustomerDTO customerDTO) {
