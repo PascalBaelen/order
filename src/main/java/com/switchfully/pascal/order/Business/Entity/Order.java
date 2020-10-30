@@ -21,6 +21,8 @@ public class Order {
         this.wantedAmount = wantedAmount;
     }
 
+    // This section has to be removed, in OrderDTO as well, it's creates an extra line in execution with JSON !!! //
+    //                  I left it in the program so that I will never forget this !!!                             //
     public static Integer getTimeToShipDelayedInWeeks() {
         return TIME_TO_SHIP_DELAYED_IN_WEEKS;
     }
@@ -28,6 +30,7 @@ public class Order {
     public LocalDate getDateOfDelayedShipMent() {
         return dateOfShipMent = LocalDate.now().plusWeeks(TIME_TO_SHIP_DELAYED_IN_WEEKS);
     }
+    //                                 end section to be removed                                                 //
 
     public String getEmailAddress() {
         return emailAddress;

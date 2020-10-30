@@ -31,7 +31,6 @@ public class OrderRepository {
     public void createXampleOrders() {
         Order order1 = new Order("pascal.baelen@live.com", 334.22,
                 LocalDate.ofYearDay(2020, 322), "33a418c6-7a34-4af1-9127-2799ce0c4f31", 22);
-        new Address("Heuvelstraat", "43A", "Geraardsbergen", "Belgium");
         Order order2 = new Order("mateo.baelen@live.com", 168.12,
                 LocalDate.ofYearDay(2020, 321), "44a418c6-7a34-4af1-9127-2799ce0c4f44", 07);
         orders.put("pascal.baelen@live.com", order1);
