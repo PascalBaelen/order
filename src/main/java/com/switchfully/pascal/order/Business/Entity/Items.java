@@ -1,9 +1,6 @@
 package com.switchfully.pascal.order.Business.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -12,37 +9,34 @@ import java.util.UUID;
 @Table(name="items")
 public class Items {
     @Id
-    @Column(name="id")
+    @SequenceGenerator(name = "member_seq", sequenceName = "member_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq")
+    @Column(name = "id")
     private long id;
-    @Column(name="name_item")
+    @Column(name = "name_item")
     private String name;
-    @Column(name="description_item")
+    @Column(name = "description_item")
     private String description;
-    @Column (name="price")
+    @Column(name = "price")
     private double price;
-    @Column (name ="amount_in_stock")
+    @Column(name = "amount_in_stock")
     private int amountInStock;
-    @Column (name = "item_id")
+    @Column(name = "item_id")
     private String idUUID;
 
     public Items() {
     }
 
-    public Items(long id, String name, String description, double price, int amountInStock, String idUUID1) {
-        this.id = id;
+    public Items(String name, String description, double price, int amountInStock, String idUUID) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.amountInStock = amountInStock;
-        this.idUUID = UUID.randomUUID().toString();  // this will be the key --> barcode ref
+        this.idUUID = idUUID;
     }
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -90,8 +84,7 @@ public class Items {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Items items = (Items) o;
-        return id == items.id &&
-                Double.compare(items.price, price) == 0 &&
+        return Double.compare(items.price, price) == 0 &&
                 amountInStock == items.amountInStock &&
                 Objects.equals(name, items.name) &&
                 Objects.equals(description, items.description) &&
@@ -100,14 +93,13 @@ public class Items {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, price, amountInStock, idUUID);
+        return Objects.hash(name, description, price, amountInStock, idUUID);
     }
 
     @Override
     public String toString() {
         return "Items{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", amountInStock=" + amountInStock +

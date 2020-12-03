@@ -6,22 +6,28 @@ import java.util.Objects;
 @Table(name = "customer")
 public class Customer {
     @Id
-    @Column(name="id")
+    @SequenceGenerator(name = "member_seq", sequenceName = "member_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq")
+    @Column(name = "id")
     private long id;
-    @Column(name="first_name")
+    @Column(name = "first_name")
     private String firstName;
-    @Column(name="last_name")
+    @Column(name = "last_name")
     private String name;
-    @Column(name="email_address")
+    @Column(name = "email_address")
     private String emailAddress; // this will be the key
-    @Column(name="phoneNumber")
+    @Column(name = "phoneNumber")
     private String phoneNumber;
 
     @Embedded
     private Address address;
 
-    public Customer(long id, String firstName, String name, String emailAddress, String phoneNumber, Address address) {
-        this.id = id;
+
+    public Customer() {
+
+    }
+
+    public Customer(String firstName, String name, String emailAddress, String phoneNumber, Address address) {
         this.firstName = firstName;
         this.name = name;
         this.emailAddress = emailAddress;
@@ -29,9 +35,6 @@ public class Customer {
         this.address = address;
     }
 
-    public Customer() {
-
-    }
     public long getId() {
         return id;
     }
@@ -69,8 +72,7 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return id == customer.id &&
-                Objects.equals(firstName, customer.firstName) &&
+        return Objects.equals(firstName, customer.firstName) &&
                 Objects.equals(name, customer.name) &&
                 Objects.equals(emailAddress, customer.emailAddress) &&
                 Objects.equals(phoneNumber, customer.phoneNumber) &&
@@ -79,14 +81,13 @@ public class Customer {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, name, emailAddress, phoneNumber, address);
+        return Objects.hash(firstName, name, emailAddress, phoneNumber, address);
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", name='" + name + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
