@@ -1,23 +1,43 @@
 package com.switchfully.pascal.order.Business.Entity;
-
-
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "customer")
 public class Customer {
+    @Id
+    @Column(name="id")
+    private long id;
+    @Column(name="first_name")
+    private String firstName;
+    @Column(name="last_name")
+    private String name;
+    @Column(name="email_address")
+    private String emailAddress; // this will be the key
+    @Column(name="phoneNumber")
+    private String phoneNumber;
 
-    private final String firstName;
-    private final String name;
-    private final String emailAddress; // this will be the key
-    private final String phoneNumber;
-    private final Address address;
+    @Embedded
+    private Address address;
 
-
-    public Customer(String firstName, String name, String emailAddress, String phoneNumber, Address address) {
+    public Customer(long id, String firstName, String name, String emailAddress, String phoneNumber, Address address) {
+        this.id = id;
         this.firstName = firstName;
         this.name = name;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
         this.address = address;
+    }
+
+    public Customer() {
+
+    }
+    public long getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getName() {
@@ -36,8 +56,12 @@ public class Customer {
         return address;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
@@ -45,22 +69,24 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return firstName.equals(customer.firstName) &&
-                name.equals(customer.name) &&
-                emailAddress.equals(customer.emailAddress) &&
-                phoneNumber.equals(customer.phoneNumber) &&
-                address.equals(customer.address);
+        return id == customer.id &&
+                Objects.equals(firstName, customer.firstName) &&
+                Objects.equals(name, customer.name) &&
+                Objects.equals(emailAddress, customer.emailAddress) &&
+                Objects.equals(phoneNumber, customer.phoneNumber) &&
+                Objects.equals(address, customer.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, name, emailAddress, phoneNumber, address);
+        return Objects.hash(id, firstName, name, emailAddress, phoneNumber, address);
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", name='" + name + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
@@ -68,3 +94,4 @@ public class Customer {
                 '}';
     }
 }
+

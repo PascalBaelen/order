@@ -4,6 +4,11 @@ package com.switchfully.pascal.order.Business.Entity;
 import java.time.LocalDate;
 import java.util.Objects;
 
+
+////////////// NOT USED WITH DB LOGIC SO FAR ////////////////////
+////////////// CAN REMAIN UNCHANGED 03/12/2020 //////////////////
+
+
 public class Order {
     public static final Integer TIME_TO_SHIP_DELAYED_IN_WEEKS = 1;
     private final String emailAddress;
