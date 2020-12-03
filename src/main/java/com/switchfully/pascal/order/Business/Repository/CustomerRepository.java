@@ -14,22 +14,23 @@ import java.util.*;
 @Repository
 public interface CustomerRepository extends CrudRepository <Customer, Long>
 
-{
+{}
 
-  public Map<String, Customer> customers = null;  // key will be emailAddress;
+
+    //public Map<String, Customer> customers = null;  // key will be emailAddress;
 //
 //    public CustomerRepository() {
 //        this.customers = new HashMap<>();
 //        createXampleCustomers();
 //    }
 //
-    public default Customer create(Customer customer) {
-        if (customer == null) throw new CustomerNotFoundException("No data given");
-        if (customers.containsValue(customer)) throw new CustomerNotFoundException
-                (customer.getEmailAddress() + " already exists");
-        customers.put(customer.getEmailAddress(), customer);
-        return customer;
-    }
+//    public default Customer create(Customer customer) {
+//        if (customer == null) throw new CustomerNotFoundException("No data given");
+//        if (customers.containsValue(customer)) throw new CustomerNotFoundException
+//                (customer.getEmailAddress() + " already exists");
+//        customers.put(customer.getEmailAddress(), customer);
+//        return customer;
+//    }
 //
 //    public void createXampleCustomers() {
 //        Customer klant1 = new Customer("Pascal", "Baelen",
@@ -42,18 +43,18 @@ public interface CustomerRepository extends CrudRepository <Customer, Long>
 //        customers.put("mateo.baelen@live.com", klant2);
 //    }
 //
-    public default Customer getCustomer(String emailAddress) {
-        Customer customer = customers.get(emailAddress);
-        if (Objects.isNull(customer)) {
-            throw new CustomerNotFoundException("There is no customer available with this email" + emailAddress);
-        }
+//    public default Customer getCustomer(String emailAddress) {
+//        Customer customer = customers.get(emailAddress);
+//        if (Objects.isNull(customer)) {
+//            throw new CustomerNotFoundException("There is no customer available with this email" + emailAddress);
+//        }
+//
+//        return customer;
+//
+//    }
 
-        return customer;
+//        public default List<Customer> getCustomers() {
+//        return new ArrayList<>(customers.values());
+//    }
 
-    }
-
-    public default List<Customer> getCustomers() {
-        return new ArrayList<>(customers.values());
-    }
-}
 

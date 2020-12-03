@@ -15,22 +15,22 @@ import java.util.*;
 // erase all memory DB and place CrudRepository 03/12/2020 //
 @Repository
 public interface ItemRepository extends CrudRepository <Items,Long>
-{
+{}
 
 
-   public Map<String, Items> itemsList= null;  //key will be randomiser UUID
+//   public Map<String, Items> itemsList= null;  //key will be randomiser UUID
 //
 //    public ItemRepository() {
 //        this.itemsList = new HashMap<>();
 //        createXampleItems();
 //    }
 //
-    public default Items create(Items items) {
-        if (items == null) throw new IllegalArgumentException("No data found");
-        if (itemsList.containsValue(items)) throw new ItemAlreadyExistsException(items.getIdUUID());
-        itemsList.put(items.getIdUUID(), items);
-        return items;
-    }
+//    public default Items create(Items items) {
+//        if (items == null) throw new IllegalArgumentException("No data found");
+//        if (itemsList.containsValue(items)) throw new ItemAlreadyExistsException(items.getIdUUID());
+//        itemsList.put(items.getIdUUID(), items);
+//        return items;
+//    }
 //
 //    public void createXampleItems() {
 //        String UUID1  = UUID.randomUUID().toString();
@@ -41,18 +41,18 @@ public interface ItemRepository extends CrudRepository <Items,Long>
 //        itemsList.put(UUID2, item2);
 //    }
 //
-    public default Items getItem(String id) {
-        Items items = itemsList.get(id);
-        if (Objects.isNull(items)) {
-            throw new ItemNotFoundException("There is no item available with this id" + id);
-        }
-
-        return items;
-
-    }
-
-    public default List<Items> getItems() {
-        return new ArrayList<>(itemsList.values());
-    }
-}
+//    public default Items getItem(String id) {
+//        Items items = itemsList.get(id);
+//        if (Objects.isNull(items)) {
+//            throw new ItemNotFoundException("There is no item available with this id" + id);
+//        }
+//
+//        return items;
+//
+//    }
+//
+//    public default List<Items> getItems() {
+//        return new ArrayList<>(itemsList.values());
+//    }
+//}
 //

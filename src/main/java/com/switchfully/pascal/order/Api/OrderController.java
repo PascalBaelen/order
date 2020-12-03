@@ -24,7 +24,7 @@ public class OrderController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<OrderDTO> getAllOrders() {
-        return orderService.getAllOrderDTOs();
+        return orderService.getOrders();
     }
 
     @PostMapping(path = "/addOrder", produces = MediaType.APPLICATION_JSON_VALUE,

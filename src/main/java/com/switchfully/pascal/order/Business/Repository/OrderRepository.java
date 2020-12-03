@@ -14,23 +14,23 @@ import java.util.*;
 // erase all memory DB and place CrudRepository 03/12/2020 //
 @Repository
 public interface OrderRepository extends CrudRepository <Order, Long>
-{
+{}
 
 
-    public Map<String, Order> orders = null;  // emailaddress will be key again
+ //   public Map<String, Order> orders = null;  // emailaddress will be key again
 //
 //    public OrderRepository() {
 //        this.orders = new HashMap<>();
 //        createXampleOrders();
 //    }
 //
-    public default Order create(Order order) {
-        if (order == null) throw new OrderNotFoundException("No data given");
-        if (orders.containsValue(order)) throw new OrderNotFoundException
-                (order.getEmailAddress() + " already exists");
-        orders.put(order.getEmailAddress(), order);
-        return order;
-    }
+//    public default Order create(Order order) {
+//        if (order == null) throw new OrderNotFoundException("No data given");
+//        if (orders.containsValue(order)) throw new OrderNotFoundException
+//                (order.getEmailAddress() + " already exists");
+//        orders.put(order.getEmailAddress(), order);
+//        return order;
+//    }
 //
 //    public void createXampleOrders() {
 //        Order order1 = new Order("pascal.baelen@live.com", 334.22,
@@ -41,18 +41,18 @@ public interface OrderRepository extends CrudRepository <Order, Long>
 //        orders.put("mateo.baelen@live.com", order2);
 //    }
 //
-    public default Order getOrder(String emailAddress) {
-        Order order = orders.get(emailAddress);
-        if (Objects.isNull(order)) {
-            throw new OrderNotFoundException("There is no order available with this email" + emailAddress);
-        }
+//    public default Order getOrder(String emailAddress) {
+//        Order order = orders.get(emailAddress);
+//        if (Objects.isNull(order)) {
+//            throw new OrderNotFoundException("There is no order available with this email" + emailAddress);
+//        }
+//
+//        return order;
+//
+//    }
+//
+//    public default List<Order> getOrders() {
+//        return new ArrayList<>(orders.values());
+//    }
 
-        return order;
-
-    }
-
-    public default List<Order> getOrders() {
-        return new ArrayList<>(orders.values());
-    }
-}
 //

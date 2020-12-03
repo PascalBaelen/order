@@ -22,7 +22,7 @@ public class ItemController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public List<ItemsDTO>getAllItems(){
-        return itemService.getAllItemDTOs();
+        return itemService.getItemsDTOs();
     }
 
     @PostMapping(path = "/addItem/admin", produces = MediaType.APPLICATION_JSON_VALUE,
